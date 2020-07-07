@@ -84,15 +84,15 @@ end
 def films_and_stars_from_sixty_two
   # List the title and leading star of every 1962 film.
   execute(<<-SQL)
-  SELECT
-    title, 
-  FROM
-    movies
-  JOIN
-    castings ON movies.id = castings.movie_id
-  JOIN 
-    actors ON castings.actor_id = actors.id 
-  WHERE 
+  # SELECT
+  #   title, 
+  # FROM
+  #   movies
+  # JOIN
+  #   castings ON movies.id = castings.movie_id
+  # JOIN 
+  #   actors ON castings.actor_id = actors.id 
+  # WHERE 
 
   SQL
 end
@@ -101,6 +101,17 @@ def travoltas_busiest_years
   # Which were the busiest years for 'John Travolta'? Show the year and the
   # number of movies he made for any year in which he made at least 2 movies.
   execute(<<-SQL)
+  SELECT
+    movies.yr, COUNT(*) as movies_made
+  FROM
+    movies
+  JOIN
+    castings ON actors.id = castings.actor_id
+  JOIN
+    movies ON castings.movie_id = movies.id
+  WHERE
+    ord = 1
+     
   SQL
 end
 
@@ -128,5 +139,14 @@ end
 def colleagues_of_garfunkel
   # List all the people who have played alongside 'Art Garfunkel'.
   execute(<<-SQL)
+    # SELECT
+    #   actors.name
+    # FROM
+    #   actors
+    # JOIN
+    #   castings ON castings.actor_id = actors.id
+    # JOIN
+    #   movies ON castings.
+
   SQL
 end
