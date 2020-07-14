@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+
+
+
+    <br>
+    <br>
+    <br>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <div>
+      <% if logged_in? %>
+        <a href="/session/">Sign out</a>
+      <% else %>
+        <a href="/session/new">Sign in</a>
+        <a href="/users/new">Sign up</a>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>
