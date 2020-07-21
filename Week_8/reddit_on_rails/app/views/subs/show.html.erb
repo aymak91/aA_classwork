@@ -1,0 +1,14 @@
+<h1><%= @sub.title %></h1>
+<h4><%= @sub.description %></h4>
+<a href="<%= user_url(@sub.moderator) %>"><%= @sub.moderator.username %></a>
+
+<ul class="posts">
+  <% @posts.each do |post| %>
+    <li>
+      <p class="post-title">Title: <%= post.title %></p>
+      <p class="post-content">Content: <%= post.content %></p>
+      <p class="post-author">Author: <a href="<%= user_url(post.author) %>"><%= post.author %></a></p>
+      <p class="post-url">URL: <a href="<%= post.url %>"><%= post.url %></a></p>
+    </li>
+  <% end %>
+</ul>

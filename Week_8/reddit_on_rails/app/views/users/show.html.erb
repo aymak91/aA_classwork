@@ -1,0 +1,33 @@
+<% if @subs %>
+    <h2>Subs where <strong><%= @user.username %></strong> is moderator</h2>
+    <% @subs.each do |sub| %>
+        <%= sub.title %>
+        <%= sub.description %>
+        <% if current_user.id == sub.moderator_id %>
+            <form action='<%= sub_url(sub.id) %>' method='POST'>
+                <input type="hidden" name="id" value="<%= sub.id %>">
+                <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+                <input type='hidden' name='_method' value='DELETE'>
+                <input type='submit' value='Delete sub!'>
+            </form>
+        <% end %>
+    <% end %>
+<% end %>
+
+<h1>Add a New Sub</h1>
+
+
+<form action='<%= new_sub_url %>' method='POST'>
+    <label>Title
+        <input type='text' name='sub[title]'>
+    </label>
+    
+    <label>Description
+        <input type='text' name='sub[title]'>
+    </label>
+    
+    <input type='hidden' name='sub[moderator_id]' value='<%= @user.id %>'>
+    
+    <input type='submit' value='Create sub!'>
+
+</form>

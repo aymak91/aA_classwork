@@ -1,0 +1,19 @@
+/* PHASE 2: Notifications */
+.badge {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: inline-block;
+    width: 1em;
+    position:relative;
+}
+
+.dropdown-notifications {
+  display: none;
+  position: absolute;
+}
+
+.notifications-li:hover .dropdown-notifications {
+  display: block;
+  background-color: orange;
+}
