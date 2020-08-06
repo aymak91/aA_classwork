@@ -1,0 +1,20 @@
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.tile {
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    background: rgba(255, 44, 44, 0.52) ;
+    text-align: center;
+}
+
+.row {
+    width: 288px;
+    background: black;
+}
